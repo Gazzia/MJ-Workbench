@@ -15,7 +15,7 @@ chrome-profiler-events*.json
 
 # env
 .env
-/src/environments/
+/src/environments/*
 
 # IDEs and editors
 /.idea
