@@ -1,0 +1,7 @@
+<div class="page">
+  <input type="text" placeholder="mot de passe" [formControl]="passwordField">
+  <button (click)="login()" [disabled]="!passwordField.valid">Valider</button>
+  <div class="error" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+</div>

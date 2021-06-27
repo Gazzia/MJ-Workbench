@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Yeseva+One&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+.page{
+  width: 100vw;
+  overflow:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(20px, 5vh, 50px);
+  box-sizing: border-box;
+  &.full{
+    height: 100vh;
+    overflow: auto;
+  }
+}
+
+body{
+  background: linear-gradient(#1e181f, #322935);
+  color: #fdece1;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+}

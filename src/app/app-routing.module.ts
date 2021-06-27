@@ -20,7 +20,8 @@ const routes: Routes = [
   {
     path: 'guerredusale',
     loadChildren: () => import('./guerredusale/guerredusale.module').then(m => m.GuerredusaleModule)
-  }
+  },
+  {path: '**', redirectTo: '/library'}
 ];
 
 @NgModule({

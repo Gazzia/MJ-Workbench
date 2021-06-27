@@ -6,22 +6,24 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
 import { LibraryComponent } from './library/library.component';
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import { MenuComponent } from './components/menu/menu.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
     AngularFireModule.initializeApp({
       apiKey: environment.apiKey,
       authDomain: "mj-workbench.firebaseapp.com",
@@ -33,7 +35,9 @@ import { MenuComponent } from './components/menu/menu.component';
     }),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

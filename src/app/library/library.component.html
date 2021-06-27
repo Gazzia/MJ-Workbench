@@ -1,1 +1,25 @@
-<p>library works!</p>
+<div class="page">
+  <h1>Librairie</h1>
+  <ul class="gameList">
+    <li class="game">
+      <div class="game-inner">
+        <fa-icon [icon]="faSkullCrossbones"></fa-icon>
+        <div class="gameTitle">Guerre du Sale</div>
+        <div class="buttons">
+          <button [disabled]="isOut">Créer</button>
+          <button (click)="signOut()">Rejoindre</button>
+        </div>
+      </div>
+    </li>
+    <li class="game">
+      <div class="game-inner">
+        <fa-icon [icon]="faDiceD20"></fa-icon>
+        <div class="gameTitle">Royaume du Sale</div>
+        <div class="buttons">
+          <button [disabled]="isOut">Créer</button>
+          <button>Rejoindre</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

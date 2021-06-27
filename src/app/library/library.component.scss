@@ -1,0 +1,98 @@
+$color-alpha: #d5ac6c;
+
+h1{
+  font-family: "Yeseva One", sans-serif;
+  font-size: 36px;
+  color: #d5ac6c;
+  letter-spacing: 0.3px;
+}
+
+.gameList{
+  margin-top: 40px;
+  display: grid;
+  gap: 20px;
+
+  .game {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    padding: 5px;
+    border: 2px solid $color-alpha;
+    text-align: center;
+    &:before, &:after {
+      content: "•";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      color: $color-alpha;
+      border: 2px solid $color-alpha;
+      line-height: 12px;
+      top: 5px;
+      text-align: center;
+    }
+    &:before {
+      left: 5px;
+    }
+    &:after {
+      right: 5px;
+    }
+    .game-inner {
+      position: relative;
+      border: 2px solid $color-alpha;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      &:before, &:after {
+        content: "•";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        font-size: 14px;
+        color: $color-alpha;
+        border: 2px solid $color-alpha;
+        line-height: 12px;
+        bottom: -2px;
+        text-align: center;
+      }
+      &:before {
+        left: -2px;
+      }
+      &:after {
+        right: -2px;
+      }
+
+      fa-icon{
+        margin-bottom: 10px;
+      }
+
+      .gameTitle{
+        font-family: "Yeseva One", sans-serif;
+        font-size: 20px;
+        letter-spacing: 0.3px;
+      }
+      .buttons{
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        button{
+          cursor: pointer;
+          background-color: #d5ac6c;
+          border:none;
+          padding: 5px 10px;
+          border-radius: 6px;
+          color:#29232b;
+          font-weight: 600;
+          font-family: "Open Sans", sans-serif;
+          &:disabled{
+            background-color: #656565;
+            cursor: not-allowed;
+          }
+        }
+      }
+
+    }
+  }
+}
