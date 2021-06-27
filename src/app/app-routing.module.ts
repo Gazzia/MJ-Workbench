@@ -2,6 +2,9 @@ import { LibraryComponent } from './library/library.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {

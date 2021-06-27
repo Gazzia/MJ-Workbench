@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mj-workbench": {
+      "hosting": {
+        "mj-workbench": [
+          "mj-workbench"
+        ]
+      }
+    }
+  }
+}
