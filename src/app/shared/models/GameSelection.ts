@@ -9,6 +9,10 @@ export class GameSelection{
     this.action = null;
   }
 
+  notNull(){
+    return this.gameType && this.action
+  }
+
   set(gameType: GameType, action: "CREATE" | "JOIN"){
     this.gameType = gameType;
     this.action = action;
