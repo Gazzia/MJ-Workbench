@@ -1,7 +1,21 @@
 <div class="page">
-  <input type="text" placeholder="mot de passe" [formControl]="passwordField">
-  <button (click)="login()" [disabled]="!passwordField.valid">Valider</button>
-  <div class="error" *ngIf="errorMessage">
-    {{errorMessage}}
+  <div class="left-col">
+    <img src="../../assets/fatlady.png" alt="">
   </div>
+  <div class="right-col">
+    <h1>Mot de passe ?</h1>
+    <input type="password" placeholder="..." [formControl]="passwordField">
+    <button (click)="login()" [disabled]="!passwordField.valid">
+      <fa-icon [icon]="faCheck"></fa-icon>
+      Valider
+    </button>
+    <div class="error" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+    <button (click)="goToLibrary()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+      Retour à la Librairie
+    </button>
+  </div>
+
 </div>
