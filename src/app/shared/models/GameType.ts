@@ -1,16 +1,16 @@
-import {IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
 export class GameType{
 
   id: string
   route: string
   name: string
-  icon: IconDefinition | null
+  icon: IconProp;
 
-  constructor(id: string, route: string, name: string, icon?: IconDefinition) {
+  constructor(id: string, route: string, name: string, icon: IconProp) {
     this.id = id;
     this.route = route;
     this.name = name;
-    this.icon = icon || null;
+    this.icon = icon;
   }
 }

@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
-import {faBookReader, faDoorOpen, faPlus, IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {faBookReader, faDoorOpen, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {gameTypeList} from "../gameTypeList";
 import {GameType} from "../shared/models/GameType";
 import {GameLobby} from "../shared/models/GameLobby";
 import {GameSelection} from "../shared/models/GameSelection";
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-library',
@@ -14,9 +15,9 @@ import {GameSelection} from "../shared/models/GameSelection";
 })
 export class LibraryComponent {
   gameTypeList: GameType[] = gameTypeList
-  faDoorOpen: IconDefinition = faDoorOpen
-  faPlus: IconDefinition = faPlus
-  faBookReader: IconDefinition = faBookReader
+  faDoorOpen: IconProp = faDoorOpen
+  faPlus: IconProp = faPlus
+  faBookReader: IconProp = faBookReader
   isOut: boolean = false;
   selection: GameSelection;
   gameLobbies: GameLobby[] = [];
