@@ -15,6 +15,9 @@ import {LoginComponent} from "./login/login.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TooltipDirective } from './shared/directives/tooltip.directive';
 import { ShouldBeMJDirective } from './shared/directives/should-be-mj.directive';
+import { WarningButtonDirective } from './shared/directives/warning-button.directive';
+import { ButtonValidDirective } from './shared/directives/button-valid.directive';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -23,11 +26,15 @@ import { ShouldBeMJDirective } from './shared/directives/should-be-mj.directive'
     MenuComponent,
     LoginComponent,
     TooltipDirective,
-    ShouldBeMJDirective
+    ShouldBeMJDirective,
+    WarningButtonDirective,
+    ButtonValidDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     HammerModule,
     AngularFireModule.initializeApp({
       apiKey: environment.apiKey,

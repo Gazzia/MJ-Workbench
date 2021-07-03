@@ -1,8 +1,14 @@
 @import "reset";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Yeseva+One&display=swap');
+
+:root {
+
+}
+
 * {
   box-sizing: border-box;
 }
+
 
 .page{
   width: 100vw;
@@ -72,4 +78,21 @@ body{
 }
 .ng-tooltip-show {
   opacity: 1;
+}
+
+button {
+  cursor: pointer;
+  background-color: #d5ac6c;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: #29232b;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+
+  &:disabled {
+    background-color: #656565 !important;
+    color: #2d2d2d !important;
+    cursor: not-allowed;
+  }
 }

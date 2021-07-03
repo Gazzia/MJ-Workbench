@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'mj-workbench';
   constructor(private auth: AngularFireAuth) {
     auth.user.subscribe(u=>{
-      console.log(u)
+      // console.log(u)
     })
   }
 }

@@ -1,31 +1,26 @@
 $color-alpha: #d5ac6c;
+@import "../shared/mixins";
 
 .page {
   gap: 20px;
 }
 
-button {
-  cursor: pointer;
-  background-color: #d5ac6c;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 6px;
-  color: #29232b;
-  font-weight: 600;
-  font-family: "Open Sans", sans-serif;
-
-  &:disabled {
-    background-color: #656565;
-    cursor: not-allowed;
-  }
+h1 {
+  @include title;
+  font-size: 36px;
+  padding-bottom: 0;
 }
 
-h1 {
-  font-family: "Yeseva One", sans-serif;
-  font-size: 36px;
-  color: #d5ac6c;
-  letter-spacing: 0.3px;
-  padding-bottom: 0;
+h2 {
+  @include title;
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.4px;
 }
 
 .gameList {
@@ -118,7 +113,7 @@ h1 {
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.27);
+  background-color: rgba(28, 28, 28, 0.53);
   z-index: 50;
   display: flex;
   justify-content: center;
@@ -144,8 +139,41 @@ h1 {
     0 37px 81px rgba(0, 0, 0, 0.13);
     border-radius: 15px;
     padding: 20px;
-    height: 300px;
-    width: 200px;
+    max-height: 80vh;
+    max-width: 80vw;
     z-index: 2;
+
+    .popup_content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+
+        .row {
+          width: 100%;
+          label {
+            display: block;
+            padding-bottom: 5px;
+            font-size: 14px;
+            opacity: 0.5;
+            text-align: center;
+          }
+          input{
+            width: 100%;
+          }
+        }
+
+        button:nth-of-type(1){
+          margin-top: 10px;
+        }
+      }
+    }
   }
 }
