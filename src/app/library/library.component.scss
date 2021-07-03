@@ -1,14 +1,33 @@
 $color-alpha: #d5ac6c;
 
+.page {
+  gap: 20px;
+}
+
+button{
+  cursor: pointer;
+  background-color: #d5ac6c;
+  border:none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color:#29232b;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  &:disabled{
+    background-color: #656565;
+    cursor: not-allowed;
+  }
+}
+
 h1{
   font-family: "Yeseva One", sans-serif;
   font-size: 36px;
   color: #d5ac6c;
   letter-spacing: 0.3px;
+  padding-bottom: 0;
 }
 
 .gameList{
-  margin-top: 40px;
   display: grid;
   gap: 20px;
 
@@ -77,20 +96,7 @@ h1{
         flex-wrap: wrap;
         gap: 15px;
         justify-content: center;
-        button{
-          cursor: pointer;
-          background-color: #d5ac6c;
-          border:none;
-          padding: 5px 10px;
-          border-radius: 6px;
-          color:#29232b;
-          font-weight: 600;
-          font-family: "Open Sans", sans-serif;
-          &:disabled{
-            background-color: #656565;
-            cursor: not-allowed;
-          }
-        }
+
       }
 
     }

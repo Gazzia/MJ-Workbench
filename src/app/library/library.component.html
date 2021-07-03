@@ -1,25 +1,37 @@
 <div class="page">
   <h1>Librairie</h1>
+  <button *ngIf="isOut" (click)="goToLogin()">
+    <fa-icon [icon]="faBookReader"></fa-icon>
+    Accès MJ
+  </button>
   <ul class="gameList">
-    <li class="game">
+    <li class="game" *ngFor="let type of gameTypeList">
       <div class="game-inner">
-        <fa-icon [icon]="faSkullCrossbones"></fa-icon>
-        <div class="gameTitle">Guerre du Sale</div>
+        <fa-icon [icon]="type.icon"></fa-icon>
+        <div class="gameTitle">{{type.name}}</div>
         <div class="buttons">
-          <button [disabled]="isOut">Créer</button>
-          <button (click)="signOut()">Rejoindre</button>
-        </div>
-      </div>
-    </li>
-    <li class="game">
-      <div class="game-inner">
-        <fa-icon [icon]="faDiceD20"></fa-icon>
-        <div class="gameTitle">Royaume du Sale</div>
-        <div class="buttons">
-          <button [disabled]="isOut">Créer</button>
-          <button>Rejoindre</button>
+          <button shouldBeMJ (click)="selection.set(type, 'CREATE')">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            Créer
+          </button>
+          <button (click)="selection.set(type, 'JOIN')">
+            <fa-icon [icon]="faDoorOpen"></fa-icon>
+            Rejoindre
+          </button>
         </div>
       </div>
     </li>
   </ul>
+</div>
+
+<div class="popup" *ngIf="selection">
+  <div class="popup_background"></div>
+  <div class="popup_box">
+    <div class="popup_content" *ngIf="selection.action == 'CREATE'">
+
+    </div>
+    <div class="popup_content" *ngIf="selection.action == 'JOIN'">
+
+    </div>
+  </div>
 </div>

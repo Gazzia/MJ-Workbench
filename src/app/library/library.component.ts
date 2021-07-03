@@ -1,7 +1,11 @@
 import {Component} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
-import {faDiceD20} from "@fortawesome/free-solid-svg-icons/faDiceD20";
-import {faSkullCrossbones} from "@fortawesome/free-solid-svg-icons";
+import {faBookReader, faDoorOpen, faPlus, IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {Router} from "@angular/router";
+import {gameTypeList} from "../gameTypeList";
+import {GameType} from "../shared/models/GameType";
+import {GameLobby} from "../shared/models/GameLobby";
+import {GameSelection} from "../shared/models/GameSelection";
 
 @Component({
   selector: 'app-library',
@@ -9,17 +13,37 @@ import {faSkullCrossbones} from "@fortawesome/free-solid-svg-icons";
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent {
-
-  faDiceD20 = faDiceD20
-  faSkullCrossbones = faSkullCrossbones
+  gameTypeList: GameType[] = gameTypeList
+  faDoorOpen: IconDefinition = faDoorOpen
+  faPlus: IconDefinition = faPlus
+  faBookReader: IconDefinition = faBookReader
   isOut: boolean = false;
+  selection: GameSelection;
+  gameLobbies: GameLobby[] = [];
 
-  constructor(private auth: AngularFireAuth) {
-    auth.user.subscribe(u => {
-      this.isOut = u == null
+  constructor(private auth: AngularFireAuth, private router: Router) {
+    // mise en place d'une sélection vide
+    this.selection = new GameSelection();
+
+    // souscription à l'auth state
+    auth.user.subscribe(user => {
+      this.isOut = (user == null)
+    })
+
+    // mise en place de la liste des lobbies
+    gameTypeList.forEach((type) => {
+      const lobby = new GameLobby(type.id, []);
+      this.gameLobbies.push(lobby)
     })
   }
 
+  selectGame(type: GameType, action: "CREATE" | "JOIN"){
+    this.selection.set(type, action);
+  }
 
-  signOut = () => this.auth.signOut()
+  deselectGame(){
+    this.selection.reset();
+  }
+
+  goToLogin = () => this.router.navigate(["login"])
 }
