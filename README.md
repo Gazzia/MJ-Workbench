@@ -1,4 +1,4 @@
-# MjWorkbench
+# MJ-Workbench
 
 Creating a game master app for a friend
 
