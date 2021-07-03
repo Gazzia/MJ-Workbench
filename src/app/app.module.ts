@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, HammerModule} from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireAnalyticsModule} from "@angular/fire/analytics";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
@@ -13,17 +13,22 @@ import { MenuComponent } from './components/menu/menu.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TooltipDirective } from './shared/directives/tooltip.directive';
+import { ShouldBeMJDirective } from './shared/directives/should-be-mj.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    TooltipDirective,
+    ShouldBeMJDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HammerModule,
     AngularFireModule.initializeApp({
       apiKey: environment.apiKey,
       authDomain: "mj-workbench.firebaseapp.com",

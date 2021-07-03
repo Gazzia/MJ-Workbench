@@ -14,12 +14,16 @@ specifiers:
   '@angular/platform-browser': ~12.0.5
   '@angular/platform-browser-dynamic': ~12.0.5
   '@angular/router': ~12.0.5
+  '@fortawesome/angular-fontawesome': ^0.9.0
+  '@fortawesome/fontawesome-svg-core': ^1.2.35
+  '@fortawesome/free-solid-svg-icons': ^5.15.3
   '@types/jasmine': ~3.6.0
   '@types/node': ^12.11.1
   dotenv: ^10.0.0
   firebase: ^7.0 || ^8.0
   firebase-tools: ^8.0.0 || ^9.0.0
   fuzzy: ^0.1.3
+  hammerjs: ^2.0.8
   inquirer: ^6.2.2
   inquirer-autocomplete-prompt: ^1.0.1
   jasmine-core: ~3.7.0
@@ -47,8 +51,12 @@ dependencies:
   '@angular/platform-browser': 12.0.5_90ab0f87a291b77499deb37ef7e64440
   '@angular/platform-browser-dynamic': 12.0.5_1ea0517477b2aabd5d4bfb7bbb73ea23
   '@angular/router': 12.0.5_9cdddb01c18264562f3c401f74fddad4
+  '@fortawesome/angular-fontawesome': 0.9.0_b173c12320410555c782df4a763522ad
+  '@fortawesome/fontawesome-svg-core': 1.2.35
+  '@fortawesome/free-solid-svg-icons': 5.15.3
   dotenv: 10.0.0
   firebase: 8.6.8
+  hammerjs: 2.0.8
   rxjs: 6.6.7
   ts-node: 10.0.0_603fd7d9d55f357f8c92a7c6204e1ce9
   tslib: 2.3.0
@@ -1887,6 +1895,39 @@ packages:
 
   /@firebase/webchannel-wrapper/0.5.0:
     resolution: {integrity: sha512-5808ztHwCy0bE154pmYSR86+uKToDcoxvM7F+nMDJ2NktxujYZLsz10e7iMXrKtyePKNP5VCVgp7s0vsViSKDA==}
+    dev: false
+
+  /@fortawesome/angular-fontawesome/0.9.0_b173c12320410555c782df4a763522ad:
+    resolution: {integrity: sha512-pJNJqxRTJChkUtywbqRuJRpmK/WNwqFqeN/GMmJmy3gHeCnWQ4SG0BwPJqaWqhi4gqII5dADijGts6wqeusxeQ==}
+    peerDependencies:
+      '@angular/core': ^12.0.0
+      '@fortawesome/fontawesome-svg-core': ^1.2.27
+    dependencies:
+      '@angular/core': 12.0.5_rxjs@6.6.7+zone.js@0.11.4
+      '@fortawesome/fontawesome-svg-core': 1.2.35
+      tslib: 2.3.0
+    dev: false
+
+  /@fortawesome/fontawesome-common-types/0.2.35:
+    resolution: {integrity: sha512-IHUfxSEDS9dDGqYwIW7wTN6tn/O8E0n5PcAHz9cAaBoZw6UpG20IG/YM3NNLaGPwPqgjBAFjIURzqoQs3rrtuw==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: false
+
+  /@fortawesome/fontawesome-svg-core/1.2.35:
+    resolution: {integrity: sha512-uLEXifXIL7hnh2sNZQrIJWNol7cTVIzwI+4qcBIq9QWaZqUblm0IDrtSqbNg+3SQf8SMGHkiSigD++rHmCHjBg==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 0.2.35
+    dev: false
+
+  /@fortawesome/free-solid-svg-icons/5.15.3:
+    resolution: {integrity: sha512-XPeeu1IlGYqz4VWGRAT5ukNMd4VHUEEJ7ysZ7pSSgaEtNvSo+FLurybGJVmiqkQdK50OkSja2bfZXOeyMGRD8Q==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 0.2.35
     dev: false
 
   /@google-cloud/paginator/3.0.5:
@@ -5373,6 +5414,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /hammerjs/2.0.8:
+    resolution: {integrity: sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=}
+    engines: {node: '>=0.8.0'}
+    dev: false
 
   /handle-thing/2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
