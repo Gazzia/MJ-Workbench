@@ -37,13 +37,5 @@ export class LibraryComponent {
     })
   }
 
-  selectGame(type: GameType, action: "CREATE" | "JOIN"){
-    this.selection.set(type, action);
-  }
-
-  deselectGame(){
-    this.selection.reset();
-  }
-
   goToLogin = () => this.router.navigate(["login"])
 }
