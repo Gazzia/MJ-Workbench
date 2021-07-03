@@ -24,8 +24,8 @@
   </ul>
 </div>
 
-<div class="popup" *ngIf="selection">
-  <div class="popup_background"></div>
+<div class="popup" *ngIf="selection.notNull()">
+  <div class="popup_clickOutside" (click)="selection.reset()"></div>
   <div class="popup_box">
     <div class="popup_content" *ngIf="selection.action == 'CREATE'">
 
