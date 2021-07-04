@@ -1,5 +1,5 @@
 @import "reset";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Yeseva+One&display=swap');
 
 :root {
 
@@ -84,11 +84,12 @@ button {
   cursor: pointer;
   background-color: #d5ac6c;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 11px;
   border-radius: 6px;
   color: #29232b;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "Open Sans", sans-serif;
+  font-size: 12px;
 
   &:disabled {
     background-color: #656565 !important;
