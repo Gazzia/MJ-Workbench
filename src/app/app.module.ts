@@ -15,7 +15,7 @@ import {LoginComponent} from "./login/login.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TooltipDirective } from './shared/directives/tooltip.directive';
 import { ShouldBeMJDirective } from './shared/directives/should-be-mj.directive';
-import { WarningButtonDirective } from './shared/directives/warning-button.directive';
+import { ButtonWarningDirective } from './shared/directives/button-warning.directive';
 import { ButtonValidDirective } from './shared/directives/button-valid.directive';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -27,7 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     LoginComponent,
     TooltipDirective,
     ShouldBeMJDirective,
-    WarningButtonDirective,
+    ButtonWarningDirective,
     ButtonValidDirective
   ],
   imports: [
