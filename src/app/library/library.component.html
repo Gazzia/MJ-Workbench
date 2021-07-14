@@ -32,7 +32,7 @@
       <h3>{{selection.gameType?.name}}</h3>
       <form [formGroup]="createForm">
         <div class="row">
-          <label for="in_gameName" (click)="logForm()">Nom de la game</label>
+          <label for="in_gameName">Nom de la game</label>
           <input type="text" id="in_gameName" formControlName="name">
         </div>
         <div formGroupName="other">
@@ -41,7 +41,7 @@
             <input type="number" id="in_gameStartingHP" min="1" formControlName="startingHealth">
           </div>
         </div>
-        <button valid type="button" [disabled]="!createForm.valid" (click)="logForm()">
+        <button valid type="button" [disabled]="!createForm.valid" (click)="createGame()">
           <fa-icon [icon]="faCheck"></fa-icon>
           Commencer
         </button>

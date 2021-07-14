@@ -2,18 +2,18 @@ import {faDiceD20, faSkullCrossbones} from "@fortawesome/free-solid-svg-icons";
 import {GameType} from "./shared/models/GameType";
 
 export const gameTypeList: GameType[] = [
-  {
-    id: "guerredusale",
-    route: "guerredusale",
-    name: "Guerre du Sale",
-    icon: faSkullCrossbones,
-    creationProps: ["startingHealth"]
-  },
-  {
-    id: "royaumedusale",
-    route: "royaumedusale",
-    name: "Royaume du Sale",
-    icon: faDiceD20,
-    creationProps: []
-  }
+  new GameType(
+    "guerredusale",
+    "guerredusale",
+    "Guerre du Sale",
+    faSkullCrossbones,
+    ["startingHealth"]
+  ),
+  new GameType(
+    "aventuredusale",
+    "aventuredusale",
+    "Aventure du Sale",
+    faDiceD20,
+    []
+  ),
 ]

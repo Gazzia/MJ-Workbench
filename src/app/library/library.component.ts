@@ -9,6 +9,8 @@ import {GameSelection} from "../shared/models/GameSelection";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {animate, animateChild, group, query, state, style, transition, trigger} from "@angular/animations";
+import {flattenObject} from "../shared/utils";
+import {GameService} from "../shared/services/game.service";
 
 @Component({
   selector: 'app-library',
@@ -47,7 +49,12 @@ export class LibraryComponent {
   gameLobbies: GameLobby[] = [];
   createForm: FormGroup;
 
-  constructor(private auth: AngularFireAuth, private router: Router, private formBuilder: FormBuilder) {
+  constructor(
+    private auth: AngularFireAuth,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private gameService: GameService
+  ) {
 
     // mise en place d'une sélection vide
     this.selection = new GameSelection();
@@ -95,8 +102,13 @@ export class LibraryComponent {
     this.selection.set(gameType, action);
   }
 
-  logForm() {
-    console.log(this.createForm)
+  createGame() {
+    const form = flattenObject(this.createForm.value);
+    const game = this.gameService.create({
+      gameType: this.selection.gameType,
+      ...form
+    })
+    console.log(game)
   }
 
   formControlExists(formControlName: string): boolean {

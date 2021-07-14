@@ -1,4 +1,5 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import {gameTypeList} from "../../gameTypeList";
 
 export class GameType{
   id: string
@@ -13,5 +14,9 @@ export class GameType{
     this.name = name;
     this.icon = icon;
     this.creationProps = creationProps;
+  }
+
+  get(id: string){
+    gameTypeList.find(gameType=> gameType.id === id);
   }
 }
