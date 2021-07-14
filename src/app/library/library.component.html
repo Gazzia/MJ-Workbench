@@ -10,7 +10,7 @@
         <fa-icon [icon]="type.icon"></fa-icon>
         <div class="gameTitle">{{type.name}}</div>
         <div class="buttons">
-          <button shouldBeMJ (click)="selection.set(type, 'CREATE')">
+          <button shouldBeMJ (click)="changeSelection(type, 'CREATE')">
             <fa-icon [icon]="faPlus"></fa-icon>
             Créer
           </button>
@@ -30,20 +30,22 @@
     <div class="popup_content" *ngIf="selection.action == 'CREATE'">
       <h2>Créer une game</h2>
       <h3>{{selection.gameType?.name}}</h3>
-      <form [formGroup]="newGDSForm">
+      <form [formGroup]="createForm">
         <div class="row">
-          <label for="in_gameName">Nom de la game</label>
-          <input type="text" id="in_gameName" formControlName="GDSName">
+          <label for="in_gameName" (click)="logForm()">Nom de la game</label>
+          <input type="text" id="in_gameName" formControlName="name">
         </div>
-        <div class="row">
-          <label for="in_gameStartingHP">Nombre de vies par défaut</label>
-          <input type="number" id="in_gameStartingHP"  min="1" formControlName="GDSStartingHealth">
+        <div formGroupName="other">
+          <div class="row" *ngIf="formControlExists('startingHealth')">
+            <label for="in_gameStartingHP">Nombre de vies par défaut</label>
+            <input type="number" id="in_gameStartingHP" min="1" formControlName="startingHealth">
+          </div>
         </div>
-        <button valid [disabled]="!newGDSForm.valid" type="button">
+        <button valid type="button" [disabled]="!createForm.valid" (click)="logForm()">
           <fa-icon [icon]="faCheck"></fa-icon>
           Commencer
         </button>
-        <button warning (click)="selection.reset()" type="button">
+        <button warning type="button" (click)="selection.reset()">
           <fa-icon [icon]="faTimes"></fa-icon>
           Annuler
         </button>

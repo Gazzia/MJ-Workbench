@@ -7,7 +7,7 @@ import {GameType} from "../shared/models/GameType";
 import {GameLobby} from "../shared/models/GameLobby";
 import {GameSelection} from "../shared/models/GameSelection";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {animate, animateChild, group, query, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -45,13 +45,10 @@ export class LibraryComponent {
   isOut: boolean = false;
   selection: GameSelection;
   gameLobbies: GameLobby[] = [];
+  createForm: FormGroup;
 
-  newGDSForm = new FormGroup({
-    GDSName: new FormControl("", Validators.required),
-    GDSStartingHealth: new FormControl(20, [Validators.required, Validators.min(1)])
-  })
+  constructor(private auth: AngularFireAuth, private router: Router, private formBuilder: FormBuilder) {
 
-  constructor(private auth: AngularFireAuth, private router: Router) {
     // mise en place d'une sélection vide
     this.selection = new GameSelection();
 
@@ -65,6 +62,11 @@ export class LibraryComponent {
       const lobby = new GameLobby(type.id, []);
       this.gameLobbies.push(lobby)
     })
+
+    this.createForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      other: this.formBuilder.group({})
+    });
   }
 
   getGamesOfType = (type: GameType) => {
@@ -73,4 +75,31 @@ export class LibraryComponent {
   };
 
   goToLogin = () => this.router.navigate(["login"])
+
+  /*
+  Lorsqu'on change le bouton sélectionné, ça se répercute sur this.selection,
+  et on modifie le formulaire de création en conséquence.
+   */
+  changeSelection(gameType: GameType, action: "CREATE" | "JOIN") {
+    // modification du formulaire de création
+    const otherGroup = this.createForm.controls.other as FormGroup;
+    const props = gameType.creationProps;
+    if (props.includes("startingHealth")) {
+      otherGroup.addControl(
+        "startingHealth",
+        new FormControl(20, [Validators.required, Validators.min(1)])
+      )
+    } else {
+      otherGroup.removeControl("startingHealth")
+    }
+    this.selection.set(gameType, action);
+  }
+
+  logForm() {
+    console.log(this.createForm)
+  }
+
+  formControlExists(formControlName: string): boolean {
+    return this.selection.gameType?.creationProps.includes(formControlName) || false;
+  }
 }

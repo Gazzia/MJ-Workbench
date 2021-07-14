@@ -6,12 +6,14 @@ export const gameTypeList: GameType[] = [
     id: "guerredusale",
     route: "guerredusale",
     name: "Guerre du Sale",
-    icon: faSkullCrossbones
+    icon: faSkullCrossbones,
+    creationProps: ["startingHealth"]
   },
   {
     id: "royaumedusale",
     route: "royaumedusale",
     name: "Royaume du Sale",
-    icon: faDiceD20
+    icon: faDiceD20,
+    creationProps: []
   }
 ]
